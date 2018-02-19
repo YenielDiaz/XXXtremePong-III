@@ -44,7 +44,7 @@ public class Ball extends GameObject {
 	private void collision() {
 		for(int i=0; i<handler.objects.size(); i++) {
 			GameObject tempObject = handler.objects.get(i);
-			if(tempObject.getID() == ID.Player1) {
+			if(tempObject.getID() == ID.Player1 || tempObject.getID() == ID.Player2) {
 				if(getBounds().intersects(tempObject.getBounds())){
 					velX = -velX;
 				}
