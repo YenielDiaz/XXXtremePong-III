@@ -33,6 +33,7 @@ public class Main extends Canvas implements Runnable{
 		r = new Random();
 		
 		handler.addObject(new Player1Object(50, HEIGHT/2 - 32, ID.Player1, handler));
+		handler.addObject(new Player2Object(WIDTH - 50, HEIGHT/2 - 32, ID.Player2, handler));
 		handler.addObject(new Ball(r.nextInt(WIDTH - 100), r.nextInt(HEIGHT - 100), ID.Ball, handler));
 	}
 	
