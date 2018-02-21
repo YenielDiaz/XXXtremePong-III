@@ -21,12 +21,14 @@ public class Main extends Canvas implements Runnable{
 	
 	private Thread thread;
 	private ObjectHandler handler;
+	private HUD hud;
 	private boolean running = false;
 	
 	public Main() {
 		new Window(WIDTH, HEIGHT, "Pong", this);
 		
 		handler = new ObjectHandler();
+		hud = new HUD();
 		
 		this.addKeyListener(new KeyInput(handler));
 		
@@ -34,7 +36,7 @@ public class Main extends Canvas implements Runnable{
 		
 		handler.addObject(new Player1Object(50, HEIGHT/2 - 32, ID.Player1, handler));
 		handler.addObject(new Player2Object(WIDTH - 50, HEIGHT/2 - 32, ID.Player2, handler));
-		handler.addObject(new Ball(WIDTH/2, HEIGHT/2 - 32, ID.Ball, handler));
+		handler.addObject(new Ball(WIDTH/2, HEIGHT/2 - 32, ID.Ball, handler, hud));
 	}
 	
 	public static void main(String[] args) {
@@ -59,6 +61,7 @@ public class Main extends Canvas implements Runnable{
 		g.fillRect(0,0, WIDTH, HEIGHT);
 		
 		handler.render(g);
+		hud.render(g);
 		
 		g.dispose();
 		bs.show();
